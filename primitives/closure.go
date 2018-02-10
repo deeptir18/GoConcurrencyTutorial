@@ -10,6 +10,7 @@ func main() {
 
     fmt.Println("Don't do this:")
 
+    // Bad example - this isn't going to work
     for _, val := range values {
         go func() {
             fmt.Println(val)
@@ -19,6 +20,7 @@ func main() {
     time.Sleep(time.Second)
     fmt.Println("\nDo do this:")
 
+    // Good example - this is going to work!
     for _, val := range values {
         go func(val int) {
             fmt.Println(val)
@@ -28,6 +30,7 @@ func main() {
     time.Sleep(time.Second)
     fmt.Println("\nOr you can do this:")
 
+    // Also a good example!
     for i, _ := range values {
         val := values[i]
         go func() {
