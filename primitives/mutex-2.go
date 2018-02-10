@@ -11,7 +11,6 @@ func main() {
     for i := 0; i < 10000; i++ {
         wg.Add(1)
         go func(i int) {
-            // what happens if we don't use the mutex?
             mu.Lock()
             defer mu.Unlock()
             counter += 1
