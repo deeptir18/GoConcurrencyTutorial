@@ -10,7 +10,7 @@ func main() {
     ch := make(chan int, 0)
 
     // Create a goroutine that sends out 5 pieces of data
-    go func(ch chan int) {
+    go func() {
         fmt.Println("Func goroutine begins sending data")
         for i := 1; i <= 5; i++ {
             ch <- i
@@ -18,7 +18,7 @@ func main() {
         }
         fmt.Println("Func goroutine ends sending data")
         close(ch)
-    }(ch)
+    }()
 
     // Wait for two seconds
     fmt.Println("Main goroutine sleeps 2 seconds")
